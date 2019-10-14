@@ -11,9 +11,11 @@ pt-BR:
           attributes:
             base:
               invalid_login: 'Login Inválido'
+  dialogs:
+    destroy: 'Você tem certeza que quer remover?'
   flash:
     alert:
-      needs_login: 'Você precisa estar logado para continuarS'
+      needs_login: 'Você precisa estar logado para continuar'
     notice:
       signed_in: 'Login efetuado com sucesso!'
       signed_out: 'Logout efetuado com sucesso. Até logo!'
@@ -34,6 +36,12 @@ pt-BR:
       sign_up: 'Cadastre-se'
       password: 'Senha'
   rooms:
+    index:
+      title: 'Quartos disponíveis'
+    room:
+      owner_html: '&mdash; %{owner} (%{when})'
+      edit: 'Editar'
+      destroy: 'Remover'
     new: Novo quarto
     title: Quartos
     location: Localização
@@ -137,9 +145,9 @@ pt-BR:
     - sexta-feira
     - sábado
     formats:
-      default: "%d/%m/%Y"
-      long: "%d de %B de %Y"
-      short: "%d de %B"
+      default: ! "%A, %d de %B de %Y, %H:%M h"
+      long: ! "%A, %d de %B de %Y, %H:%M h"
+      short: ! "%d/%m, %H:%M h"
     month_names:
     - 
     - janeiro

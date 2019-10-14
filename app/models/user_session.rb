@@ -34,6 +34,6 @@ class UserSession
   end
 
   def destroy 
-    @session[:user_id] = nill
+    @session[:user_id] = nil
   end
 end
