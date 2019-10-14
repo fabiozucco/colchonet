@@ -1,0 +1,6 @@
+pt-BR:
+  helpers:
+    submit:
+      create: Criar %{model}
+      submit: Salvar %{model}
+      update: Atualizar %{model}

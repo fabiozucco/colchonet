@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= t('.title') %></strong>
+  <%= @room.title %>
+</p>
+
+<p>
+  <strong><%= t('.location') %></strong>
+  <%= @room.location %>
+</p>
+
+<p>
+  <strong><%= t('.description') %></strong>
+  <%= @room.description %>
+</p>
+
+<p>
+  <strong><%= t('.invoke') %></strong>
+  <%= @room.invoke %>
+</p>
+
+<p>
+  <strong><%= t('.active_record') %></strong>
+  <%= @room.active_record %>
+</p>
+
+<%= link_to t('links.edit'), edit_room_path(@room) %> |
+<%= link_to t('links.back'), rooms_path %>

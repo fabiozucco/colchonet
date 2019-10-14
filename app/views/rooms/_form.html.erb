@@ -1,0 +1,45 @@
+<%= form_with(model: room, local: true) do |form| %>
+  <% if room.errors.any? %>
+    <div id="error_explanation">
+      Error
+    </div>
+  <% end %>
+
+
+  <%= form_for @room do |r| %>
+
+  <div class="field">
+    <%= r.label :title %>
+    <%= r.text_field :title %>
+    <%= error_tag @room, :title %>
+  </div>
+
+  <div class="field">
+    <%= r.label :location %>
+    <%= r.text_field :location %>
+    <%= error_tag @room, :location %>
+  </div>
+
+  <div class="field">
+    <%= r.label :description %>
+    <%= r.text_area :description %>
+    <%= error_tag @room, :description %>
+  </div>
+
+  <div class="field">
+    <%= r.label :invoke %>
+    <%= r.text_field :invoke %>
+    <%= error_tag @room, :invoke %>
+  </div>
+
+  <div class="field">
+    <%= r.label :active_record %>
+    <%= r.text_field :active_record %>
+    <%= error_tag @room, :active_record %>
+  </div>
+
+  <div class="actions">
+    <%= r.submit %>
+  </div>
+<% end %>
+<% end %>
