@@ -1,4 +1,7 @@
 Colchonet::Application.routes.draw do
+  resources :rooms do
+    resources :reviews, only: [:create, :update], module: :rooms
+  end
   resources :rooms
   resources :users
   resource :confirmation, only: [:show]
