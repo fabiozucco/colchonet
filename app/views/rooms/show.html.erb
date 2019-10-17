@@ -15,15 +15,8 @@
   <%= @room.description %>
 </p>
 
-<p>
-  <strong><%= t('.invoke') %></strong>
-  <%= @room.invoke %>
-</p>
 
-<p>
-  <strong><%= t('.active_record') %></strong>
-  <%= @room.active_record %>
-</p>
+
 
 <%= link_to t('links.edit'), edit_room_path(@room) %> |
 <%= link_to t('links.back'), rooms_path %>

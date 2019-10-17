@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
   # GET /rooms
   # GET /rooms.json
   def index
-    @rooms = Rooms.order(most_recent).map do |room|
+    @rooms = Room.order(created_at: :desc).map do |room|
       RoomPresenter.new(room, self, false)
     end
   end
@@ -72,6 +72,6 @@ class RoomsController < ApplicationController
     end
 
     def most_recent
-      Rooms.order(created_at: :desc)
+      @room = Room.order(created_at: :desc)
     end
 end

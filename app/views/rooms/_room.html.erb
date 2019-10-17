@@ -8,11 +8,11 @@
   <h2><%= link_to room.title, room.route %></h2>
   <%= render partial: 'review', locals: {room: room} %>
   <span class="created">
-    <%= t'.owner.html', owner: room.user.full_name, when: 1(room.created_at, format: :short) %>
+    <%= t'.owner_html', owner: room.user.full_name, when: l(room.created_at, format: :short) %>
   </span>
   <p>
     <span class="location">
-      <%= link_to room.location, 'https://maps.google.com/?q=#{room.location}'.target: :blank%>
+      <%= link_to room.location, 'https://maps.google.com/?q=#{room.location}', target: :blank %>
     </span>
   </p>
   <p><%= room.description %></p>
