@@ -5,7 +5,6 @@
     </div>
   <% end %>
 
-
   <%= form_for @room do |r| %>
 
   <div class="field">
@@ -26,18 +25,12 @@
     <%= error_tag @room, :description %>
   </div>
 
-  <div class="field">
-    <%= r.label :invoke %>
-    <%= r.text_field :invoke %>
-    <%= error_tag @room, :invoke %>
-  </div>
-
-  <div class="field">
-    <%= r.label :active_record %>
-    <%= r.text_field :active_record %>
-    <%= error_tag @room, :active_record %>
-  </div>
-
+  <p>
+    <%= r.label :picture %>
+    <%= r.file_field :picture %>
+    <%= error_tag @room, :picture %>
+  </p>
+  
   <div class="actions">
     <%= r.submit %>
   </div>

@@ -1,18 +1,18 @@
 class RoomsController < ApplicationController
+  PER_PAGE = 10
   before_action :require_authentication, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /rooms
   # GET /rooms.json
   def index
-    @rooms = Room.order(created_at: :desc).map do |room|
-      RoomPresenter.new(room, self, false)
-    end
+    @search_query = params[:q]
+    @rooms = RoomCollectionPresenter.new(Room.order(created_at: :desc).search(@search_query).page(params[:page]).per(PER_PAGE), self)
   end
 
   # GET /rooms/1
   # GET /rooms/1.json
   def show
-    room_model = Room.find(params[:id])
+    room_model = Room.friendly.find(params[:id])
     @room = RoomPresenter.new(room_model, self)
   end
 
@@ -23,7 +23,7 @@ class RoomsController < ApplicationController
 
   # GET /rooms/1/edit
   def edit
-    @room = current_user.rooms.find(params[:id])
+    @room = current_user.rooms.friendly.find(params[:id])
   end
 
   # POST /rooms
@@ -41,7 +41,7 @@ class RoomsController < ApplicationController
   # PATCH/PUT /rooms/1
   # PATCH/PUT /rooms/1.json
   def update
-    @room = current_user.rooms.find(params[:id])
+    @room = current_user.rooms.friendly.find(params[:id])
 
     if @room.update(room_params)
       redirect_to @room, notice: t('flash.notice.room_updated')
@@ -54,7 +54,7 @@ class RoomsController < ApplicationController
   # DELETE /rooms/1.json
 
   def destroy
-    @room = current_user.rooms.find(params[:id])
+    @room = current_user.rooms.friendly.find(params[:id])
     @room.destroy
 
     redirect_to room_url
@@ -68,10 +68,6 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit(:title, :location, :descriptions)
-    end
-
-    def most_recent
-      @room = Room.order(created_at: :desc)
+      params.require(:room).permit(:title, :location, :description, :picture)
     end
 end

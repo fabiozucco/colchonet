@@ -15,6 +15,20 @@ pt-BR:
           attributes:
             base:
               invalid_login: 'Login Inválido'
+  activerecord:
+    attributes:
+      room:
+        description: Descrição
+        location: Localização
+        title: Título
+        picture: Foto
+  views:
+    pagination:
+      first: '&laquo; Primeira'
+      last: 'Ultima &raquo;'
+      previous: '&lsaquo; Anterior'
+      next: 'Próxima &rsaquo;'
+      truncate: '...'
   confirmations:
     success: Email confirmado com sucesso, obrigado!
   dialogs:
@@ -27,6 +41,7 @@ pt-BR:
       signed_in: 'Login efetuado com sucesso!'
       signed_out: 'Logout efetuado com sucesso. Até logo!'
       already_logged_in: 'Você já está logado.'
+      room_updated: 'O dormitório foi atualizado!'
   users:
     new:
       title: Cadastro
@@ -45,6 +60,9 @@ pt-BR:
   rooms:
     index:
       title: 'Quartos disponíveis'
+      search_results: 'Resultados da busca'
+    search:
+      search_for : 'Buscar por...'
     review_form:
       login_to_review: 'Faça o login para avaliar quartos'
     review:

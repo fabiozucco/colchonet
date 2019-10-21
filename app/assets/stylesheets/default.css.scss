@@ -14,6 +14,18 @@ $success-text-color: #468847;
   font-size: 14px;
 }
 
+.pagination {
+  margin: 20px 0;
+}
+
+.pagination span {
+  padding: 5px;
+  margin: 0 3px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  @include shadow(#ccc, 0, 3px, 6px);
+}
+
 body { 
   background-color: #f5f5f5; 
 }
