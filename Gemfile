@@ -26,6 +26,8 @@ gem 'friendly_id'
 gem 'kaminari'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'sprockets-rails', require: 'sprockets/railtie'
+gem 'pg'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

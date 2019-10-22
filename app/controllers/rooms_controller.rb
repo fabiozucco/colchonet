@@ -6,7 +6,14 @@ class RoomsController < ApplicationController
   # GET /rooms.json
   def index
     @search_query = params[:q]
-    @rooms = RoomCollectionPresenter.new(Room.order(created_at: :desc).search(@search_query).page(params[:page]).per(PER_PAGE), self)
+
+    rooms = Room.search(@search_query).page(params[:page]).per(PER_PAGE)
+    order = rooms.order(created_at: :desc).map
+
+    # @rooms = rooms.order do |room|
+    #   RoomPresenter.new(room,self,false)
+    # end
+    @rooms = RoomCollectionPresenter.new(rooms, self)
   end
 
   # GET /rooms/1

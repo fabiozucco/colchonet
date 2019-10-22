@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_10_21_201013) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -24,8 +27,8 @@ ActiveRecord::Schema.define(version: 2019_10_21_201013) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "room_id"
+    t.bigint "user_id"
+    t.bigint "room_id"
     t.integer "points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -42,7 +45,8 @@ ActiveRecord::Schema.define(version: 2019_10_21_201013) do
     t.string "active_record"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "user_id"
+    t.bigint "user_id"
+    t.integer "reviews_count"
     t.string "slug"
     t.string "picture"
     t.index ["slug"], name: "index_rooms_on_slug", unique: true
@@ -53,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_201013) do
     t.string "full_name"
     t.string "email"
     t.string "location"
+    t.string "reviews_count"
     t.text "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
