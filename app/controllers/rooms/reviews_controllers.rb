@@ -21,4 +21,5 @@ class Rooms::ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:points)
+  end
 end
