@@ -1,7 +1,6 @@
 class Room < ApplicationRecord
   extend FriendlyId
 
-  mount_uploader :picture, PictureUploader
   friendly_id :title, use: [:slugged, :history]
 
   validates_presence_of :title

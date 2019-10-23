@@ -24,12 +24,6 @@
     <%= r.text_area :description %>
     <%= error_tag @room, :description %>
   </div>
-
-  <p>
-    <%= r.label :picture %>
-    <%= r.file_field :picture %>
-    <%= error_tag @room, :picture %>
-  </p>
   
   <div class="actions">
     <%= r.submit %>
